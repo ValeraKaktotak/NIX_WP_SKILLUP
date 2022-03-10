@@ -1,23 +1,49 @@
-# ignore everything in the root except the "wp-content" directory.
-!wp-content/
+# ignore WP directories
+wp-includes/
+wp-admin/
+wp-content/themes/*
+wp-content/plugins/*
+wp-content/uploads
+wp-content/upgrade
+wp-content/ai1wm-backups
 
-# ignore everything in the "wp-content" directory, except:
-# "mu-plugins", "plugins", "themes" directory
-wp-content/*
-!wp-content/mu-plugins/
-!wp-content/plugins/
-!wp-content/themes/
+# un-ignore specific themes
+!wp-content/themes/merchandiser-child/
 
-# ignore these plugins
-wp-content/plugins/hello.php
-
-# ignore specific themes
-wp-content/themes/twenty*/
+# un-ignore specific plugins
+!wp-content/plugins/crmperks-marketing-data
 
 # ignore node dependency directories
 node_modules/
 
-# ignore log files and databases
+# ignore statis WP files
+/index.php
+wp-activate.php
+wp-blog-header.php
+wp-comments-post.php
+wp-config-sample.php
+wp-config.php
+wp-cron.php
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+wp-content/db.php
+
+# ignore other filеs
 *.log
 *.sql
 *.sqlite
+robots.txt
+readme.html
+.htaccess
+license.txt
+
+# ignore оther directoriеs
+wp-content/backups-dup-lite
+.env
+.idea
