@@ -10,6 +10,18 @@ new Sparrow\Options\MyOptions\Options();
 add_action( 'wp_enqueue_scripts', 'style_theme' );
 add_action( 'wp_footer', 'scripts_theme' );
 add_action( 'after_setup_theme', 'main_menu' );
+add_action( 'widgets_init', 'register_my_widgets' );
+
+function register_my_widgets(){
+    register_sidebar( array(
+            'name' => 'Page Sidebar',
+            'id' => 'page_sidebar',
+            'description' => 'Описание Page Sidebar',
+            'before_widget' => '<div class="widget %2$s">',
+            'after_widget' => "</div>\n",
+        )
+    );
+}
 
 
 function style_theme(){
@@ -25,7 +37,6 @@ function style_theme(){
     wp_enqueue_script( 'jquery' );
 
     wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/assets/js/modernizr.js' );
-
     wp_enqueue_style( 'default', get_template_directory_uri() . '/assets/css/default.css' );
     wp_enqueue_style( 'layout', get_template_directory_uri() . '/assets/css/layout.css' );
     wp_enqueue_style( 'media-queries', get_template_directory_uri() . '/assets/css/media-queries.css' );
@@ -41,6 +52,46 @@ function scripts_theme(){
 function main_menu(){
     register_nav_menu( 'top', 'Меню в шапке' );
     register_nav_menu( 'footer', 'Меню в подвале' );
+    add_theme_support( 'post-thumbnails', array( 'post' ) );
 }
 
+add_filter('gform_pre_render', 'my_form');
+
+//Note: when changing drop down values, we also need to use the gform_pre_validation so that the new values are available when validating the field.
+add_filter( 'gform_pre_validation', 'my_form' );
+
+//Note: when changing drop down values, we also need to use the gform_admin_pre_render so that the right values are displayed when editing the entry.
+add_filter( 'gform_admin_pre_render', 'my_form' );
+
+//Note: this will allow for the labels to be used during the submission process in case values are enabled
+add_filter( 'gform_pre_submission_filter', 'my_form' );
+
+function my_form( $form )
+{
+
+    if ($form['title'] != "my_form") return $form;
+
+    foreach ($form['fields'] as &$field) {
+        if ($field->type != 'select' || strpos($field->cssClass, 'categories-dropdown') === false) {
+            continue;
+        }
+
+        // you can add additional parameters here to alter the posts that are retrieved
+        // more info: http://codex.wordpress.org/Template_Tags/get_posts
+        $movie_ids = get_categories();
+        //var_dump($movie_ids);
+
+        // update 'Not listed Here' to whatever you'd like the instructive option to be
+        $choices = array(array('text' => 'Not listed Here', 'value' => 0));
+
+        foreach ($movie_ids as $movie_id) {
+//            var_dump( $movie_id->name );
+//            exit;
+            $choices[] = array('text' => $movie_id->name, 'value' => $movie_id->id, 'isSelected' => false);
+        }
+
+        $field['choices'] = $choices;
+    }
+    return $form;
+}
 
