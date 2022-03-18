@@ -40,13 +40,13 @@ function style_theme(){
     wp_enqueue_style( 'default', get_template_directory_uri() . '/assets/css/default.css' );
     wp_enqueue_style( 'layout', get_template_directory_uri() . '/assets/css/layout.css' );
     wp_enqueue_style( 'media-queries', get_template_directory_uri() . '/assets/css/media-queries.css' );
-    wp_enqueue_style( 'my-style', get_stylesheet_uri() );
 }
 
 function scripts_theme(){
     wp_enqueue_script( 'flexslider', get_template_directory_uri() . '/assets/js/jquery.flexslider.js' );
     wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/assets/js/doubletaptogo.js' );
     wp_enqueue_script( 'init', get_template_directory_uri() . '/assets/js/init.js' );
+    wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js' );
 }
 
 function main_menu(){
@@ -72,6 +72,7 @@ function my_form( $form )
     if ($form['title'] != "my_form") return $form;
 
     foreach ($form['fields'] as &$field) {
+        //добавляем css класс categories-dropdown в настройках полей в гравити формс
         if ($field->type != 'select' || strpos($field->cssClass, 'categories-dropdown') === false) {
             continue;
         }
