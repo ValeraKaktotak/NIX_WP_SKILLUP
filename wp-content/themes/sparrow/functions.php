@@ -55,6 +55,8 @@ function main_menu(){
     add_theme_support( 'post-thumbnails', array( 'post' ) );
 }
 
+
+// обавляем список категорий через back-end в gravity forms
 add_filter('gform_pre_render', 'my_form');
 
 //Note: when changing drop down values, we also need to use the gform_pre_validation so that the new values are available when validating the field.
@@ -96,3 +98,8 @@ function my_form( $form )
     return $form;
 }
 
+// The gform_currency_setting_message action hook is used to add a message after the currency drop down within the Settings page.
+add_action( 'gform_currency_setting_message', 'currency_message' );
+function currency_message() {
+    esc_html_e( 'take the US Dollars', 'your_text_domain_here' );
+}
