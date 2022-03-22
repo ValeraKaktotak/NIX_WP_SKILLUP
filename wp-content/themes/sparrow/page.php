@@ -106,10 +106,8 @@
                         <time class="date" datetime="2014-01-14T11:24">Jan 14, 2014</time>
                         /
                         <span class="categories">
-                     <a href="#">Design</a> /
-                     <a href="#">User Inferface</a> /
-                     <a href="#">Web Design</a>
-                     </span>
+                            <?php the_category(' / ');?>
+                        </span>
 
                     </p>
 
