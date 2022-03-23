@@ -49,7 +49,7 @@
                         </div>
 
                     </article>
-                    <?php } //конец while
+                <?php } //конец while
                 } //конец if
                 ?>
 

@@ -53,6 +53,7 @@ function main_menu(){
     register_nav_menu( 'top', 'Меню в шапке' );
     register_nav_menu( 'footer', 'Меню в подвале' );
     add_theme_support( 'post-thumbnails', array( 'post' ) );
+    add_theme_support( 'post-formats', array( 'video', 'aside' ) );
 }
 
 
