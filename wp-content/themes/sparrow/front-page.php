@@ -14,10 +14,10 @@
                 <div class="row">
                     <div class="twelve columns">
                         <div class="slider-text">
-                            <h1>Free amazing site template<span>.</span></h1>
-                            <p>Aenean condimentum, lacus sit amet luctus lobortis, dolores et quas molestias excepturi
+                            <h1><?php _e( 'Free amazing site template', 'sparrow' ); ?><span>.</span></h1>
+                            <p><?php _e( 'Aenean condimentum, lacus sit amet luctus lobortis, dolores et quas molestias excepturi
                                 enim tellus ultrices elit, amet consequat enim elit noneas sit amet luctu. lacus sit amet luctus lobortis, dolores et quas molestias excepturi
-                                enim tellus ultrices elit.</p>
+                                enim tellus ultrices elit.', 'sparrow' ); ?></p>
                         </div>
                         <div class="slider-image">
                             <img src="images/sliders/home-slider-image-01.png" alt="" />
@@ -31,10 +31,10 @@
                 <div class="row">
                     <div class="twelve columns">
                         <div class="slider-text">
-                            <h1>Responsive + HTML5 + CSS3<span>.</span></h1>
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                            <h1><?php _e( 'Responsive + HTML5 + CSS3', 'sparrow' ); ?><span>.</span></h1>
+                            <p><?php _e( 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
                                 deleniti eos et accusamus. amet consequat enim elit noneas sit amet luctu. lacus sit amet luctus lobortis.
-                                Aenean condimentum, lacus sit amet luctus.</p>
+                                Aenean condimentum, lacus sit amet luctus.', 'sparrow' ); ?></p>
                         </div>
                         <div class="slider-image">
                             <img src="images/sliders/home-slider-image-02.png" alt="" />
@@ -58,34 +58,34 @@
         <div class="bgrid-quarters s-bgrid-halves">
 
             <div class="columns">
-                <h2>Clean & Modern.</h2>
+                <h2><?php _e( 'Clean & Modern.', 'sparrow' ); ?></h2>
 
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                <p><?php _e( 'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'sparrow' ); ?>
                 </p>
             </div>
 
             <div class="columns">
-                <h2>Responsive.</h2>
+                <h2><?php _e( 'Responsive.', 'sparrow' ); ?></h2>
 
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                <p><?php _e( 'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'sparrow' ); ?>
                 </p>
             </div>
 
             <div class="columns s-first">
-                <h2>HTML5 + CSS3.</h2>
+                <h2><?php _e( 'HTML5 + CSS3.', 'sparrow' ); ?></h2>
 
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                <p><?php _e( 'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'sparrow' ); ?>
                 </p>
             </div>
 
             <div class="columns">
-                <h2>Free of Charge.</h2>
+                <h2><?php _e( 'Free of Charge.', 'sparrow' ); ?></h2>
 
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                <p><?php _e( 'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'sparrow' ); ?>
                 </p>
             </div>
 
@@ -102,7 +102,7 @@
     <div class="row">
 
         <div class="twelve columns align-center">
-            <h1>Some of our recent works.</h1>
+            <h1><?php _e( 'Some of our recent works.', 'sparrow' ); ?></h1>
         </div>
 
         <div id="portfolio-wrapper" class="bgrid-quarters s-bgrid-halves">
@@ -175,104 +175,55 @@
 
     <div class="row">
         <div class="twelve columns align-center">
-            <h1>Our latest posts and rants.</h1>
+            <h1><?php _e( 'Our latest posts and rants.', 'sparrow' ); ?></h1>
         </div>
     </div>
 
     <div class="blog-entries">
 
         <!-- Entry -->
-        <article class="row entry">
 
-            <div class="entry-header">
+            <?php
+            $args = array( 'post_type' => 'post', 'posts_per_page' => 10 );
+            $loop = new WP_Query( $args );
+            if ( $loop->have_posts() ) : while ( $loop->have_posts() ) :$loop->the_post();?>
 
-                <div class="permalink">
-                    <a href="single.html"><i class="fa fa-link"></i></a>
+            <article class="row entry">
+
+                <div class="entry-header">
+
+                    <div class="permalink">
+                        <a href="<?php the_permalink(); ?>"><i class="fa fa-link"></i></a>
+                    </div>
+
+                    <div class="ten columns entry-title pull-right">
+                        <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                    </div>
+
+                    <div class="two columns post-meta end">
+                        <p>
+                            <time datetime="2014-01-31" class="post-date" pubdate=""><?php the_time('F jS, Y') ?></time>
+                        </p>
+                    </div>
+
                 </div>
 
-                <div class="ten columns entry-title pull-right">
-                    <h3><a href="single.html">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h3>
+                <div class="ten columns offset-2 post-content">
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                        deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate.
+                        At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
+                        <a class="more-link" href="<?php the_permalink(); ?>"> <?php _e( 'Read More', 'sparrow' ); ?><i class="fa fa-arrow-circle-o-right"></i></a></p>
                 </div>
 
-                <div class="two columns post-meta end">
-                    <p>
-                        <time datetime="2014-01-31" class="post-date" pubdate="">Jan 31, 2014</time>
-                        <span class="dauthor">By Sakura Haruno</span>
-                    </p>
-                </div>
+            </article>
 
-            </div>
+                <?php wp_reset_postdata();?>
+            <?php endwhile;
+            else :
+                  _e( 'Sorry, nothing else :(', 'sparrow' );
+            endif; ?>
 
-            <div class="ten columns offset-2 post-content">
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate.
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
-                    <a class="more-link" href="single.html">Read More<i class="fa fa-arrow-circle-o-right"></i></a></p>
-            </div>
-
-        </article> <!-- Entry End -->
-
-        <!-- Entry -->
-        <article class="row entry">
-
-            <div class="entry-header">
-
-                <div class="permalink">
-                    <a href="single.html"><i class="fa fa-link"></i></a>
-                </div>
-
-                <div class="ten columns entry-title pull-right">
-                    <h3><a href="single.html">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit sed.</a></h3>
-                </div>
-
-                <div class="two columns post-meta end">
-                    <p>
-                        <time datetime="2014-01-29" class="post-date" pubdate="">Jan 30, 2014</time>
-                        <span class="dauthor">By John Doe</span>
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="ten columns offset-2 post-content">
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate.
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
-                    <a class="more-link" href="single.html">Read More<i class="fa fa-arrow-circle-o-right"></i></a></p>
-            </div>
-
-        </article> <!-- Entry End -->
-
-        <!-- Entry -->
-        <article class="row entry">
-
-            <div class="entry-header">
-
-                <div class="permalink">
-                    <a href="single.html"><i class="fa fa-link"></i></a>
-                </div>
-
-                <div class="ten columns entry-title pull-right">
-                    <h3><a href="blog-single.html">Quis autem vel esse eum iure reprehenderit qui in ea voluptate velit esse.</a></h3>
-                </div>
-
-                <div class="two columns post-meta end">
-                    <p>
-                        <time datetime="2014-01-28" class="post-date" pubdate="">Jan 28, 2014</time>
-                        <span class="dauthor">By Naruto Uzumaki</span>
-                    </p>
-                </div>
-
-            </div>
-
-            <div class="ten columns offset-2 post-content">
-                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
-                    deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate.
-                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
-                    <a class="more-link" href="single.html">Read More<i class="fa fa-arrow-circle-o-right"></i></a></p>
-            </div>
-
-        </article> <!-- Entry End -->
+            <!-- Entry End -->
 
     </div> <!-- Entries End -->
 
@@ -286,16 +237,17 @@
 
         <div class="eight columns offset-1">
 
-            <h1><a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT">Host This Template on Dreamhost.</a></h1>
-            <p>Looking for an awesome and reliable webhosting? Try <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><span>DreamHost</span></a>.
-                Get <span>$50 off</span> when you sign up with the promocode <span>STYLESHOUT</span>.
-                <!-- Simply type	the promocode in the box labeled “Promo Code” when placing your order. --></p>
+            <h1><a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><?php _e( 'Host This Template on Dreamhost.', 'sparrow' ); ?></a></h1>
+            <p>
+                <?php _e( 'Looking for an awesome and reliable web hosting? Try', 'sparrow' ); ?> <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><span><?php _e( 'DreamHost', 'sparrow' ); ?></span></a>.
+                <?php _e( 'Get <span>$50 off</span> when you sign up with the promocode <span>STYLESHOUT</span>.', 'sparrow' ); ?>
+            </p>
 
         </div>
 
         <div class="three columns action">
 
-            <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT" class="button">Sign Up Now</a>
+            <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT" class="button"><?php _e( 'Sign Up Now', 'sparrow' ); ?></a>
 
         </div>
 
@@ -316,25 +268,14 @@
         <ul id="twitter" class="align-center">
             <li>
                <span>
-               This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-               Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum
-               <a href="#">http://t.co/CGIrdxIlI3</a>
+                   <?php _e( "This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
+                    Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum", 'sparrow' ); ?>
                </span>
                 <b><a href="#">2 Days Ago</a></b>
             </li>
-            <!--
-            <li>
-               <span>
-               This is Photoshop's version  of Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet.
-               Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum
-               <a href="#">http://t.co/CGIrdxIlI3</a>
-               </span>
-               <b><a href="#">3 Days Ago</a></b>
-            </li>
-            -->
         </ul>
 
-        <p class="align-center"><a href="#" class="button">Follow us</a></p>
+        <p class="align-center"><a href="#" class="button"><?php _e( 'Follow us', 'sparrow' ); ?></a></p>
 
     </div>
 
