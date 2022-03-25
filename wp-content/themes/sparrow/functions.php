@@ -11,6 +11,11 @@ add_action( 'wp_enqueue_scripts', 'style_theme' );
 add_action( 'wp_footer', 'scripts_theme' );
 add_action( 'after_setup_theme', 'main_menu' );
 add_action( 'widgets_init', 'register_my_widgets' );
+add_action('after_setup_theme', 'localize_theme_setup');
+
+function localize_theme_setup() {
+    load_theme_textdomain('sparrow', get_template_directory() . '/languages' );
+}
 
 function register_my_widgets(){
     register_sidebar( array(
@@ -22,6 +27,8 @@ function register_my_widgets(){
         )
     );
 }
+
+
 
 
 function style_theme(){

@@ -13,8 +13,8 @@ class PersonBlock
         if ( function_exists( 'acf_register_block' ) ) {
             acf_register_block(array(
                 'name'				=> 'person-block',
-                'title'				=> __('Person block'),
-                'description'		=> __('A custom block for person.'),
+                'title'				=> __('Person block', 'sparrow' ),
+                'description'		=> __('A custom block for person.', 'sparrow' ),
                 'render_template'	=> get_template_directory() . '/template-parts/blocks/block-person.php',
                 'category'			=> 'layout',
                 'icon'				=> 'excerpt-view',
