@@ -111,3 +111,15 @@ add_action( 'gform_currency_setting_message', 'currency_message' );
 function currency_message() {
     esc_html_e( 'take the US Dollars', 'your_text_domain_here' );
 }
+
+
+
+
+
+add_action('wp_ajax_helloworld', 'say_hello');
+function say_hello(){
+    echo 'Hello world!!!';
+    wp_die();
+}
+
+

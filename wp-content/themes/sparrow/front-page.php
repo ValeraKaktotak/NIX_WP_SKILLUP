@@ -275,8 +275,8 @@
             </li>
         </ul>
 
-        <p class="align-center"><a href="#" class="button"><?php _e( 'Follow us', 'sparrow' ); ?></a></p>
-
+        <p class="align-center"><a href="#" class="button" id="follow_us"><?php _e( 'Follow us', 'sparrow' ); ?></a></p>
+        <?php echo get_template_part( 'template-parts/random-posts' ); ?>
     </div>
 
 </section> <!-- Tweet Section End-->
