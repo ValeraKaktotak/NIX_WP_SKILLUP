@@ -1,4 +1,17 @@
 
+
+jQuery(document).ready(function () {
+    jQuery('.follow_us').click(function () {
+        let data = {
+            action: 'random_posts',
+        };
+        jQuery
+            .post( my_rand_post.ajaxurl, data, function () {
+            })
+    });
+});
+
+
 jQuery(document).on('gform_confirmation_loaded', function(event, formId){
 alert('hello');
 });

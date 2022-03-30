@@ -6,6 +6,9 @@ new Sparrow\Blocks\PersonBlock\PersonBlock();
 include 'inc/options/class-options.php';
 new Sparrow\Options\MyOptions\Options();
 
+include 'inc/ajax-handlers/class-wp-random-posts.php';
+new Sparrow\Modules\RandomPosts\Random();
+
 
 add_action( 'wp_enqueue_scripts', 'style_theme' );
 add_action( 'wp_footer', 'scripts_theme' );
@@ -54,6 +57,9 @@ function scripts_theme(){
     wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/assets/js/doubletaptogo.js' );
     wp_enqueue_script( 'init', get_template_directory_uri() . '/assets/js/init.js' );
     wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js' );
+    wp_localize_script('main', 'my_rand_post', array(
+        'ajaxurl' => admin_url('admin-ajax.php'),
+    ));
 }
 
 function main_menu(){
@@ -113,13 +119,5 @@ function currency_message() {
 }
 
 
-
-
-
-add_action('wp_ajax_helloworld', 'say_hello');
-function say_hello(){
-    echo 'Hello world!!!';
-    wp_die();
-}
 
 
