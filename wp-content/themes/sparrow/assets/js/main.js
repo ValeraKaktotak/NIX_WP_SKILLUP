@@ -6,7 +6,19 @@ jQuery(document).ready(function () {
             action: 'random_posts',
         };
         jQuery
-            .post( my_rand_post.ajaxurl, data, function () {
+            .post( my_ajax_request.ajaxurl, data, function () {
+            })
+    });
+});
+
+jQuery(document).ready(function () {
+    jQuery('.user_info').click(function () {
+        let data = {
+            action: 'user_info',
+            id: '1',
+        };
+        jQuery
+            .post( my_ajax_request.ajaxurl, data, function () {
             })
     });
 });

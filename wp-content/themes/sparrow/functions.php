@@ -9,6 +9,9 @@ new Sparrow\Options\MyOptions\Options();
 include 'inc/ajax-handlers/class-wp-random-posts.php';
 new Sparrow\Modules\RandomPosts\Random();
 
+include 'inc/ajax-handlers/class-wp-user-info.php';
+new Sparrow\Modules\UserInfo\GetUserInfo();
+
 
 add_action( 'wp_enqueue_scripts', 'style_theme' );
 add_action( 'wp_footer', 'scripts_theme' );
@@ -57,7 +60,7 @@ function scripts_theme(){
     wp_enqueue_script( 'doubletaptogo', get_template_directory_uri() . '/assets/js/doubletaptogo.js' );
     wp_enqueue_script( 'init', get_template_directory_uri() . '/assets/js/init.js' );
     wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js' );
-    wp_localize_script('main', 'my_rand_post', array(
+    wp_localize_script('main', 'my_ajax_request', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
     ));
 }
