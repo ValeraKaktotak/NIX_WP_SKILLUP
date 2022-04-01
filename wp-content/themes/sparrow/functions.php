@@ -12,6 +12,9 @@ new Sparrow\Modules\RandomPosts\Random();
 include 'inc/ajax-handlers/class-wp-user-info.php';
 new Sparrow\Modules\UserInfo\GetUserInfo();
 
+include 'inc/ajax-handlers/class-wp-user-info-security.php';
+new Sparrow\Modules\UserInfoSecurity\GetUserInfoSecurity();
+
 
 add_action( 'wp_enqueue_scripts', 'style_theme' );
 add_action( 'wp_footer', 'scripts_theme' );
@@ -62,6 +65,7 @@ function scripts_theme(){
     wp_enqueue_script( 'main', get_template_directory_uri() . '/assets/js/main.js' );
     wp_localize_script('main', 'my_ajax_request', array(
         'ajaxurl' => admin_url('admin-ajax.php'),
+        'nonce' => wp_create_nonce('user_security_nonce'),
     ));
 }
 

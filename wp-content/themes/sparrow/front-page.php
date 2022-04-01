@@ -277,7 +277,8 @@
 
         <p class="align-center"><a class="button follow_us" id="follow_us"><?php _e( 'Random posts', 'sparrow' ); ?></a></p>
         <p class="align-center"><a class="button user_info" id="user_info"><?php _e( 'User info', 'sparrow' ); ?></a></p>
-        <?php echo get_template_part( 'template-parts/random-posts' ); ?>
+        <p class="align-center"><a class="button security" id="security"><?php _e( 'User info -> security', 'sparrow' ); ?></a></p>
+
     </div>
 
 </section> <!-- Tweet Section End-->

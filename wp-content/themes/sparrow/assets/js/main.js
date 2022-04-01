@@ -9,9 +9,7 @@ jQuery(document).ready(function () {
             .post( my_ajax_request.ajaxurl, data, function () {
             })
     });
-});
 
-jQuery(document).ready(function () {
     jQuery('.user_info').click(function () {
         let data = {
             action: 'user_info',
@@ -20,6 +18,23 @@ jQuery(document).ready(function () {
         jQuery
             .post( my_ajax_request.ajaxurl, data, function () {
             })
+    });
+
+    jQuery('.security').click(function () {
+        let data = {
+            action: 'user_security',
+            nonce: my_ajax_request.nonce,
+            id: '1',
+        };
+        let result = jQuery
+            .post( my_ajax_request.ajaxurl, data, function () {
+            });
+            result.done( function () {
+                alert('vse good!!!');
+            });
+            result.fail( function () {
+                alert('403');
+            });
     });
 });
 
