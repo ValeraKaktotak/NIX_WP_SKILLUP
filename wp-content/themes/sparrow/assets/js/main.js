@@ -29,12 +29,12 @@ jQuery(document).ready(function () {
         let result = jQuery
             .post( my_ajax_request.ajaxurl, data, function () {
             });
-            result.done( function () {
-                alert('vse good!!!');
-            });
-            result.fail( function () {
-                alert('403');
-            });
+        result.done( function () {
+            alert('vse good!!!');
+        });
+        result.fail( function () {
+            alert('403');
+        });
     });
 });
 
