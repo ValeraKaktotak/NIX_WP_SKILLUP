@@ -1,3 +1,50 @@
+jQuery(document).ready(function () {
+    jQuery('.follow_us').click(function () {
+        let data = {
+            action: 'random_posts',
+        };
+        jQuery
+            .post( my_ajax_request.ajaxurl, data, function () {
+            })
+    });
+
+    jQuery('.user_info').click(function () {
+        let data = {
+            action: 'user_info',
+            id: '23',
+        };
+        jQuery
+            .post( my_ajax_request.ajaxurl, data, function (response) {
+                if(response){
+
+                    $('.qwerty').append(response);
+                }
+            })
+    });
+
+    jQuery('.security').click(function () {
+        let data = {
+            action: 'user_security',
+            nonce: my_ajax_request.nonce,
+            id: '1',
+        };
+        let result = jQuery
+            .post( my_ajax_request.ajaxurl, data, function () {
+            });
+        result.done( function () {
+            alert('vse good!!!');
+        });
+        result.fail( function () {
+            alert('403');
+        });
+    });
+});
+
+
+
+
+
+
 
 jQuery(document).on('gform_confirmation_loaded', function(event, formId){
 alert('hello');
