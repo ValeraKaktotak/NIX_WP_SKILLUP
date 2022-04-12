@@ -27,7 +27,7 @@
 
 <!-- Header
 ================================================== -->
-<header>
+<header style="background:<?php the_field('header_color', 'options');?>">
 
     <div class="row">
 
