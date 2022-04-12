@@ -4,7 +4,7 @@ namespace Sparrow\Api\ProductsInfo;
 
 use \PHPHtmlParser\Dom;
 
-class WP_Get_Product_info{
+class WP_Product_Route{
 
 	public function __construct() {
 		add_action( 'rest_api_init', function(){

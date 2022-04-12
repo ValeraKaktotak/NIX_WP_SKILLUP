@@ -2,7 +2,7 @@
 
 namespace Sparrow\Api\AdminMail;
 
-class WP_Send_Admin_Mail{
+class WP_Send_Admin_Mail_Route{
 
 	public function __construct() {
 		add_action( 'rest_api_init', [$this, 'register_my_route']);

@@ -18,10 +18,10 @@ include 'inc/ajax-handlers/class-wp-user-info-security.php';
 new Sparrow\Modules\UserInfoSecurity\WP_User_Info_Security_Ajax_Handler();
 
 include 'inc/rest-api/class-wp-products-info-route.php.php';
-new Sparrow\Api\ProductsInfo\WP_Get_Product_info();
+new Sparrow\Api\ProductsInfo\WP_Product_Route();
 
 include 'inc/rest-api/class-wp-admin-mail-route.php.php';
-new Sparrow\Api\AdminMail\WP_Send_Admin_Mail();
+new Sparrow\Api\AdminMail\WP_Send_Admin_Mail_Route();
 
 
 add_action( 'wp_enqueue_scripts', 'style_theme' );

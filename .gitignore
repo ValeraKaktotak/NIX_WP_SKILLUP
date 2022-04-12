@@ -1,4 +1,5 @@
 # ignore WP directories
+vendor
 wp-includes/
 wp-admin/
 wp-content/themes/*
