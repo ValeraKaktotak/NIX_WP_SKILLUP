@@ -1,5 +1,7 @@
 <?php
 
+require "vendor/autoload.php";
+
 include 'inc/gutenberg-blocks/class-block-person.php';
 new Sparrow\Blocks\PersonBlock\PersonBlock();
 
@@ -15,9 +17,11 @@ new Sparrow\Modules\UserInfo\WP_User_Info_Ajax_Handler();
 include 'inc/ajax-handlers/class-wp-user-info-security.php';
 new Sparrow\Modules\UserInfoSecurity\WP_User_Info_Security_Ajax_Handler();
 
-require "vendor/autoload.php";
-use PHPHtmlParser\Dom;
+include 'inc/rest-api/class-wp-products-info-route.php.php';
+new Sparrow\Api\ProductsInfo\WP_Get_Product_info();
 
+include 'inc/rest-api/class-wp-admin-mail-route.php.php';
+new Sparrow\Api\AdminMail\WP_Send_Admin_Mail();
 
 
 add_action( 'wp_enqueue_scripts', 'style_theme' );
@@ -40,9 +44,6 @@ function register_my_widgets(){
 		)
 	);
 }
-
-
-
 
 function style_theme(){
 	// отменяем зарегистрированный jQuery
@@ -76,10 +77,9 @@ function scripts_theme(){
 function main_menu(){
 	register_nav_menu( 'top', 'Меню в шапке' );
 	register_nav_menu( 'footer', 'Меню в подвале' );
-	add_theme_support( 'post-thumbnails', array( 'post' ) );
+	add_theme_support( 'post-thumbnails', array( 'post', 'testcpt' ) );
 	add_theme_support( 'post-formats', array( 'video', 'aside' ) );
 }
-
 
 // обавляем список категорий через back-end в gravity forms
 add_filter('gform_pre_render', 'my_form');
@@ -95,7 +95,6 @@ add_filter( 'gform_pre_submission_filter', 'my_form' );
 
 function my_form( $form )
 {
-
 	if ($form['title'] != "my_form") return $form;
 
 	foreach ($form['fields'] as &$field) {
@@ -128,34 +127,3 @@ add_action( 'gform_currency_setting_message', 'currency_message' );
 function currency_message() {
 	esc_html_e( 'take the US Dollars', 'your_text_domain_here' );
 }
-
-
-
-add_action( 'rest_api_init', function(){
-
-	register_rest_route( 'myplugin/v1', '/products', [
-		'methods'  => 'GET',
-		'callback' => 'my_awesome_func',
-
-
-	] );
-
-}, 10, 0 );
-
-function my_awesome_func(){
-
-	$result = array();
-	$dom = new Dom;
-	$dom->loadFromUrl('https://rozetka.com.ua/ua/elektrotransport/c4625901/');
-	$html = $dom->find('.goods-tile__title');
-	for($i =0; $i < 10; $i++ ){
-		$result[$i] =  $html[$i]->text;
-	}
-	print_r($result);
-
-
-}
-
-
-
-
