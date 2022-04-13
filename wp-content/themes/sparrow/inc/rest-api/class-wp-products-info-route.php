@@ -8,7 +8,6 @@ use \PHPHtmlParser\Dom;
  * example of route
  * http://localhost/wp-json/myplugin/v1/products
  */
-
 class WP_Product_Route {
 
 	public function __construct() {

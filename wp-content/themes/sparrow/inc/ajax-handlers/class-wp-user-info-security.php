@@ -2,22 +2,23 @@
 
 namespace Sparrow\Modules\UserInfoSecurity;
 
-class WP_User_Info_Security_Ajax_Handler{
+class WP_User_Info_Security_Ajax_Handler {
 
-    public function __construct() {
-        $this->init_hooks();
-    }
+	public function __construct() {
+		$this->init_hooks();
+	}
 
-    protected function init_hooks()
-    {
-        add_action('wp_ajax_user_security', [$this, 'security_output_user']);
-        add_action('wp_ajax_nopriv_user_security', [$this, 'security_output_user']);
-    }
+	protected function init_hooks() {
+		add_action( 'wp_ajax_user_security',
+			[ $this, 'security_output_user' ] );
+		add_action( 'wp_ajax_nopriv_user_security',
+			[ $this, 'security_output_user' ] );
+	}
 
-    public function security_output_user(){
-        if( empty( $_POST['nonce'] ) ){
-            wp_die();
-        }
+	public function security_output_user() {
+		if ( empty( $_POST['nonce'] ) ) {
+			wp_die();
+		}
 //	    -------------------1st------------------
 //        $nonce_outside = $_POST['nonce'];
 //        $nonce_inside = wp_create_nonce('user_security_nonce');
@@ -44,8 +45,8 @@ class WP_User_Info_Security_Ajax_Handler{
 //	    }
 //
 //	    -------------------3rd------------------
-	    check_ajax_referer('user_security_nonce', 'nonce', true );
-    }
+		check_ajax_referer( 'user_security_nonce', 'nonce', true );
+	}
 }
 
 

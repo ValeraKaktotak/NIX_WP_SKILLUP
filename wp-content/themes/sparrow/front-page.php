@@ -20,7 +20,7 @@
                                 enim tellus ultrices elit.', 'sparrow' ); ?></p>
                             </div>
                             <div class="slider-image">
-                                <img src="images/sliders/home-slider-image-01.png" alt="" />
+                                <img src="images/sliders/home-slider-image-01.png" alt=""/>
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                                 Aenean condimentum, lacus sit amet luctus.', 'sparrow' ); ?></p>
                             </div>
                             <div class="slider-image">
-                                <img src="images/sliders/home-slider-image-02.png" alt="" />
+                                <img src="images/sliders/home-slider-image-02.png" alt=""/>
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,8 @@
                     <h2><?php _e( 'Clean & Modern.', 'sparrow' ); ?></h2>
 
                     <p><?php _e( 'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'sparrow' ); ?>
+                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+							'sparrow' ); ?>
                     </p>
                 </div>
 
@@ -69,7 +70,8 @@
                     <h2><?php _e( 'Responsive.', 'sparrow' ); ?></h2>
 
                     <p><?php _e( 'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'sparrow' ); ?>
+                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+							'sparrow' ); ?>
                     </p>
                 </div>
 
@@ -77,7 +79,8 @@
                     <h2><?php _e( 'HTML5 + CSS3.', 'sparrow' ); ?></h2>
 
                     <p><?php _e( 'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'sparrow' ); ?>
+                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+							'sparrow' ); ?>
                     </p>
                 </div>
 
@@ -85,7 +88,8 @@
                     <h2><?php _e( 'Free of Charge.', 'sparrow' ); ?></h2>
 
                     <p><?php _e( 'Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
-                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.', 'sparrow' ); ?>
+                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.',
+							'sparrow' ); ?>
                     </p>
                 </div>
 
@@ -186,7 +190,7 @@
 			<?php
 			$args = array( 'post_type' => 'post', 'posts_per_page' => 10 );
 			$loop = new WP_Query( $args );
-			if ( $loop->have_posts() ) : while ( $loop->have_posts() ) :$loop->the_post();?>
+			if ( $loop->have_posts() ) : while ( $loop->have_posts() ) :$loop->the_post(); ?>
 
                 <article class="row entry">
 
@@ -202,22 +206,25 @@
 
                         <div class="two columns post-meta end">
                             <p>
-                                <time datetime="2014-01-31" class="post-date" pubdate=""><?php the_time('F jS, Y') ?></time>
+                                <time datetime="2014-01-31" class="post-date"
+                                      pubdate=""><?php the_time( 'F jS, Y' ) ?></time>
                             </p>
                         </div>
 
                     </div>
 
                     <div class="ten columns offset-2 post-content">
-                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                        <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium
+                            voluptatum
                             deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate.
                             At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium.
-                            <a class="more-link" href="<?php the_permalink(); ?>"> <?php _e( 'Read More', 'sparrow' ); ?><i class="fa fa-arrow-circle-o-right"></i></a></p>
+                            <a class="more-link" href="<?php the_permalink(); ?>"> <?php _e( 'Read More',
+									'sparrow' ); ?><i class="fa fa-arrow-circle-o-right"></i></a></p>
                     </div>
 
                 </article>
 
-				<?php wp_reset_postdata();?>
+				<?php wp_reset_postdata(); ?>
 			<?php endwhile;
 			else :
 				_e( 'Sorry, nothing else :(', 'sparrow' );
@@ -237,17 +244,23 @@
 
             <div class="eight columns offset-1">
 
-                <h1><a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><?php _e( 'Host This Template on Dreamhost.', 'sparrow' ); ?></a></h1>
+                <h1>
+                    <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><?php _e( 'Host This Template on Dreamhost.',
+							'sparrow' ); ?></a></h1>
                 <p>
-					<?php _e( 'Looking for an awesome and reliable web hosting? Try', 'sparrow' ); ?> <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><span><?php _e( 'DreamHost', 'sparrow' ); ?></span></a>.
-					<?php _e( 'Get <span>$50 off</span> when you sign up with the promocode <span>STYLESHOUT</span>.', 'sparrow' ); ?>
+					<?php _e( 'Looking for an awesome and reliable web hosting? Try', 'sparrow' ); ?> <a
+                            href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT"><span><?php _e( 'DreamHost',
+								'sparrow' ); ?></span></a>.
+					<?php _e( 'Get <span>$50 off</span> when you sign up with the promocode <span>STYLESHOUT</span>.',
+						'sparrow' ); ?>
                 </p>
 
             </div>
 
             <div class="three columns action">
 
-                <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT" class="button"><?php _e( 'Sign Up Now', 'sparrow' ); ?></a>
+                <a href="http://www.dreamhost.com/r.cgi?287326|STYLESHOUT" class="button"><?php _e( 'Sign Up Now',
+						'sparrow' ); ?></a>
 
             </div>
 
@@ -278,9 +291,12 @@
 
             </div>
 
-            <p class="align-center"><a class="button follow_us" id="follow_us"><?php _e( 'Random posts', 'sparrow' ); ?></a></p>
-            <p class="align-center"><a class="button user_info" id="user_info"><?php _e( 'User info', 'sparrow' ); ?></a></p>
-            <p class="align-center"><a class="button security" id="security"><?php _e( 'User info -> security', 'sparrow' ); ?></a></p>
+            <p class="align-center"><a class="button follow_us" id="follow_us"><?php _e( 'Random posts',
+						'sparrow' ); ?></a></p>
+            <p class="align-center"><a class="button user_info" id="user_info"><?php _e( 'User info',
+						'sparrow' ); ?></a></p>
+            <p class="align-center"><a class="button security" id="security"><?php _e( 'User info -> security',
+						'sparrow' ); ?></a></p>
 
         </div>
 

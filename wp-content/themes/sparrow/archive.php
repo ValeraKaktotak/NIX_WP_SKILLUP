@@ -25,34 +25,35 @@
 
             <div id="primary" class="eight columns">
 
-                <?php if( have_posts() ) { while( have_posts() ){ the_post(); ?>
-                    <article class="post">
+				<?php if ( have_posts() ) {
+					while ( have_posts() ) {
+						the_post(); ?>
+                        <article class="post">
 
-                        <div class="entry-header cf">
+                            <div class="entry-header cf">
 
-                            <h1><a href="<?php the_permalink(); ?>" title=""><?php the_title(); ?></a></h1>
+                                <h1><a href="<?php the_permalink(); ?>" title=""><?php the_title(); ?></a></h1>
 
-                            <p class="post-meta">
+                                <p class="post-meta">
 
-                                <time class="date" datetime="2014-01-14T11:24"><?php the_time('F jS, Y') ?></time>
-                                /
-                                <span class="categories">
-                                    <?php the_category(' / ');?>
+                                    <time class="date" datetime="2014-01-14T11:24"><?php the_time( 'F jS, Y' ) ?></time>
+                                    /
+                                    <span class="categories">
+                                    <?php the_category( ' / ' ); ?>
                                 </span>
 
-                            </p>
+                                </p>
 
-                        </div>
+                            </div>
 
-                        <div class="post-thumb">
-                            <a href="single.html" title=""><?php the_post_thumbnail( 'thumbnail' );?></a>
-                        </div>
+                            <div class="post-thumb">
+                                <a href="single.html" title=""><?php the_post_thumbnail( 'thumbnail' ); ?></a>
+                            </div>
 
-                    </article>
-                <?php } //конец while
-                } //конец if
-                ?>
-
+                        </article>
+					<?php } //конец while
+				} //конец if
+				?>
 
 
                 <!-- Pagination -->
@@ -76,7 +77,7 @@
 
             <div id="secondary" class="four columns end">
 
-                <?php dynamic_sidebar('page-sidebar')?>
+				<?php dynamic_sidebar( 'page-sidebar' ) ?>
 
             </div> <!-- Secondary End-->
 

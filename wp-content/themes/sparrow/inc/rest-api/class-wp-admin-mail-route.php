@@ -5,7 +5,6 @@ namespace Sparrow\Api\AdminMail;
 /**
  * example of route  http://localhost/wp-json/myroute/v1/products/sold/1
  */
-
 class WP_Send_Admin_Mail_Route {
 
 	public function __construct() {

@@ -4,7 +4,8 @@
         <h5>Search</h5>
         <form action="#">
 
-            <input class="text-search" type="text" onfocus="if (this.value == 'Search here...') { this.value = ''; }" onblur="if(this.value == '') { this.value = 'Search here...'; }" value="Search here...">
+            <input class="text-search" type="text" onfocus="if (this.value == 'Search here...') { this.value = ''; }"
+                   onblur="if(this.value == '') { this.value = 'Search here...'; }" value="Search here...">
             <input type="submit" class="submit-search" value="">
 
         </form>
@@ -15,7 +16,8 @@
         <div class="textwidget">Proin gravida nibh vel velit auctor aliquet.
             Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum,
             nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus
-            a sit amet mauris. Morbi accumsan ipsum velit. </div>
+            a sit amet mauris. Morbi accumsan ipsum velit.
+        </div>
     </div>
 
     <div class="widget widget_categories">

@@ -1,18 +1,18 @@
 <!-- footer
 ================================================== -->
-<footer style="background:<?php the_field('footer_color', 'options');?>">
+<footer style="background:<?php the_field( 'footer_color', 'options' ); ?>">
 
     <div class="row">
 
         <div class="twelve columns">
 
-            <?php
-            wp_nav_menu(array(
-                'theme_location' => 'footer',
-                'container' => null,
-                'menu_class' => 'footer-nav',
-            ));
-            ?>
+			<?php
+			wp_nav_menu( array(
+				'theme_location' => 'footer',
+				'container'      => null,
+				'menu_class'     => 'footer-nav',
+			) );
+			?>
 
             <ul class="footer-social">
                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>

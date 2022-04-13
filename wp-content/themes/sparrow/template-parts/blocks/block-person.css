@@ -5,12 +5,15 @@
 .portfolio-title {
     clear: none;
 }
+
 .w100 {
     width: 100%;
 }
+
 .pb20 {
     padding-bottom: 20px;
 }
+
 .portfolio-logo {
     outline: 2px solid #ebebeb;
     border-radius: 50%;

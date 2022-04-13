@@ -1,7 +1,10 @@
 <!DOCTYPE html>
-<!--[if lt IE 8 ]><html class="no-js ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="no-js ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 8)|!(IE)]><!--><html class="no-js" lang="en"> <!--<![endif]-->
+<!--[if lt IE 8 ]>
+<html class="no-js ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]>
+<html class="no-js ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 8)|!(IE)]><!-->
+<html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 
     <!--- Basic Page Needs
@@ -17,9 +20,9 @@
 
     <!-- Favicons
      ================================================== -->
-    <link rel="shortcut icon" href="favicon.ico" >
+    <link rel="shortcut icon" href="favicon.ico">
 
-    <?php wp_head(); ?>
+	<?php wp_head(); ?>
 
 </head>
 
@@ -27,7 +30,7 @@
 
 <!-- Header
 ================================================== -->
-<header style="background:<?php the_field('header_color', 'options');?>">
+<header style="background:<?php the_field( 'header_color', 'options' ); ?>">
 
     <div class="row">
 
@@ -47,14 +50,14 @@
                 <a class="mobile-btn" href="#" title="Hide navigation">Hide navigation</a>
 
                 <!-- #nav -->
-                <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'top',
-                    'container' => null,
-                    'menu_class' => 'nav',
-                    'menu_id' => 'nav',
-                ));
-                ?>
+				<?php
+				wp_nav_menu( array(
+					'theme_location' => 'top',
+					'container'      => null,
+					'menu_class'     => 'nav',
+					'menu_id'        => 'nav',
+				) );
+				?>
                 <!-- end #nav -->
 
             </nav>
