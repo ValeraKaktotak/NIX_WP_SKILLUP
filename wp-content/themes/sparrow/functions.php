@@ -1,5 +1,7 @@
 <?php
 
+require "vendor/autoload.php";
+
 include 'inc/gutenberg-blocks/class-block-person.php';
 new Sparrow\Blocks\PersonBlock\PersonBlock();
 
@@ -14,6 +16,12 @@ new Sparrow\Modules\UserInfo\WP_User_Info_Ajax_Handler();
 
 include 'inc/ajax-handlers/class-wp-user-info-security.php';
 new Sparrow\Modules\UserInfoSecurity\WP_User_Info_Security_Ajax_Handler();
+
+include 'inc/rest-api/class-wp-products-info-route.php';
+new Sparrow\Api\ProductsInfo\WP_Product_Route();
+
+include 'inc/rest-api/class-wp-admin-mail-route.php';
+new Sparrow\Api\AdminMail\WP_Send_Admin_Mail_Route();
 
 
 add_action( 'wp_enqueue_scripts', 'style_theme' );
@@ -36,9 +44,6 @@ function register_my_widgets(){
 		)
 	);
 }
-
-
-
 
 function style_theme(){
 	// отменяем зарегистрированный jQuery
@@ -72,10 +77,9 @@ function scripts_theme(){
 function main_menu(){
 	register_nav_menu( 'top', 'Меню в шапке' );
 	register_nav_menu( 'footer', 'Меню в подвале' );
-	add_theme_support( 'post-thumbnails', array( 'post' ) );
+	add_theme_support( 'post-thumbnails', array( 'post', 'testcpt' ) );
 	add_theme_support( 'post-formats', array( 'video', 'aside' ) );
 }
-
 
 // обавляем список категорий через back-end в gravity forms
 add_filter('gform_pre_render', 'my_form');
@@ -91,7 +95,6 @@ add_filter( 'gform_pre_submission_filter', 'my_form' );
 
 function my_form( $form )
 {
-
 	if ($form['title'] != "my_form") return $form;
 
 	foreach ($form['fields'] as &$field) {
@@ -124,7 +127,3 @@ add_action( 'gform_currency_setting_message', 'currency_message' );
 function currency_message() {
 	esc_html_e( 'take the US Dollars', 'your_text_domain_here' );
 }
-
-
-
-

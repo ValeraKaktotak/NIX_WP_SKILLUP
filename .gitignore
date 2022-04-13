@@ -49,3 +49,4 @@ license.txt
 wp-content/backups-dup-lite
 .env
 .idea
+vendor
