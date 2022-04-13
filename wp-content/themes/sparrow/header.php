@@ -30,7 +30,7 @@
 
 <!-- Header
 ================================================== -->
-<header style="background:<?php the_field( 'header_color', 'options' ); ?>">
+<header style="background:#b3a7a7">
 
     <div class="row">
 

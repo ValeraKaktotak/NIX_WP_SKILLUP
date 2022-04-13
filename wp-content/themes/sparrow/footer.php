@@ -1,6 +1,6 @@
 <!-- footer
 ================================================== -->
-<footer style="background:<?php the_field( 'footer_color', 'options' ); ?>">
+<footer style="background:#b3a7a7">
 
     <div class="row">
 
