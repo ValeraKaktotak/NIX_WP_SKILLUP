@@ -1,0 +1,11 @@
+<pre>Array
+(
+    [id] => 357
+    [date] => 2022-04-20T19:50:16
+    [client name] => valera
+    [client email] => valerakaktotak@gmail.com
+    [product № 1 ] => T-short adidas - red
+    [product № 2 ] => Cap new era - black
+    [total coast] => 65.00
+)
+</pre>
