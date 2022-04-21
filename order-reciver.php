@@ -18,10 +18,10 @@ function nginx_headers() {
 
 $request_headers = nginx_headers();
 $payload         = $request;
-$receivedHash    = $request_headers['X-Wc-Webhook-Signature'];
-$generatedHash   = base64_encode( hash_hmac( 'sha256', $payload, $secret, true ) );
+$received_hash    = $request_headers['X-Wc-Webhook-Signature'];
+$generated_hash   = base64_encode( hash_hmac( 'sha256', $payload, $secret, true ) );
 
-if ( $receivedHash === $generatedHash ) {
+if ( $received_hash === $generated_hash ) {
 	$req_dump   = print_r( $request, true );
 	$action     = json_decode( $req_dump, true );
 	$array_data = [];
@@ -55,6 +55,6 @@ if ( $receivedHash === $generatedHash ) {
  */
 
 /**
- * запись в одну строку с пробелом в качестве разделителя
+ * запись в одну строку с 2 пробелами и / между ними в качестве разделителя
  * $data = file_put_contents( 'order-ID.txt', implode(' / ', $data_array) );
  */
