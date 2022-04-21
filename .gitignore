@@ -8,9 +8,13 @@ wp-content/upgrade
 wp-content/ai1wm-backups
 
 
+# un-ignore specific files
+!order-reciver.php
+!order-ID.txt
 
 # un-ignore specific themes
 !wp-content/themes/sparrow
+!wp-content/themes/boutique
 
 # un-ignore specific plugins
 !wp-content/plugins/crmperks-marketing-data
